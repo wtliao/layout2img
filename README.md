@@ -54,5 +54,4 @@ If you find this repo helpful, please consider citing:
 
 ## Acknowledgements
 
-This repository is based on [
-Lifespan_Age_Transformation_Synthesis](https://github.com/royorel/Lifespan_Age_Transformation_Synthesis).
+This repository is based on [LostGAN](https://github.com/WillSuen/LostGANs), and the propsoed modules can be applied in the [layout2img](https://github.com/zhaobozb/layout2im).
