@@ -4,7 +4,11 @@ This repository includes the implementation for [Context-Aware Layout to Image G
 This repo is not completely.
 
 ## Requirements
-
+* python3
+* pytorch >1.0
+* numpy
+* matplotlib
+* opencv
 
 Or install full requirements by running:
 ```bash
@@ -12,7 +16,7 @@ pip install -r requirements.txt
 ```
 
 ## TODO
-- [ ] instruction to prepare dataset
+- [x] instruction to prepare dataset
 - [ ] remove all unnecessary files
 - [ ] add link to download our pre-trained model
 - [ ] clean code including comments
@@ -21,7 +25,16 @@ pip install -r requirements.txt
 
 ## Training ImageTransformer
 
-### Prepare data
+### Data Preparation
+Download COCO dataset to datasets/coco
+```bash
+bash scripts/download_coco.sh
+```
+Download VG dataset to datasets/vg
+```bash
+bash scripts/download_vg.sh
+python scripts/preprocess_vg.py
+```
 
 
 ### Start training
