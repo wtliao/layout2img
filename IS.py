@@ -24,7 +24,7 @@ from tqdm import tqdm, trange
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_npy_file', default=None)
-parser.add_argument('--input_image_dir', default='samples/tmp/graph/coco_no_geo/G140/128_5')#app/coco_no_geo/G180/128_
+parser.add_argument('--input_image_dir', default='samples/tmp/app/vg/G40/128_5')#app/coco_no_geo/G180/128_
 parser.add_argument('--input_image_dir_list', default=None)
 parser.add_argument('--input_image_superdir', default=None)
 parser.add_argument('--image_size', default=128, type=int)

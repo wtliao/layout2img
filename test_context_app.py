@@ -10,6 +10,7 @@ from data.vg import *
 from model.resnet_generator_context import *
 from utils.util import *
 import imageio
+from skimage import img_as_ubyte
 from tqdm import tqdm
 
 
@@ -74,20 +75,22 @@ def main(args):
                 z_obj = torch.from_numpy(truncted_random(num_o=num_o, thres=thres)).float().cuda()
                 z_im = torch.from_numpy(truncted_random(num_o=1, thres=thres)).view(1, -1).float().cuda()
                 fake_images = netG.forward(z_obj, bbox, z_im, label.squeeze(dim=-1))
-                imageio.imwrite("{save_path}/sample_{idx}_numb_{numb}.jpg".format(save_path=args.sample_path, idx=idx, numb=j),
-                                fake_images[0].cpu().detach().numpy().transpose(1, 2, 0) * 0.5 + 0.5)
+                fake_images_uint = img_as_ubyte(fake_images[0].cpu().detach().numpy().transpose(1, 2, 0) * 0.5 + 0.5)
+                # imageio.imwrite("{save_path}/sample_{idx}_numb_{numb}.jpg".format(save_path=args.sample_path, idx=idx, numb=j), fake_images[0].cpu().detach().numpy().transpose(1, 2, 0)* 0.5 + 0.5)
+                imageio.imwrite("{save_path}/sample_{idx}_numb_{numb}.jpg".format(save_path=args.sample_path, idx=idx, numb=j), fake_images_uint)
                 pbar.update(1)
+                # pbar.update(1)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default='coco',
+    parser.add_argument('--dataset', type=str, default='vg',
                         help='training dataset')
-    parser.add_argument('--load_eopch', type=int, default=200,
+    parser.add_argument('--load_eopch', type=int, default=40,
                         help='which checkpoint to load')
     parser.add_argument('--model_path', type=str, default='/home/liao/work_code/LostGANs/outputs/tmp/app/vg/128/model/G_40.pth', help='which epoch to load')
     parser.add_argument('--num_img', type=int, default=5, help="number of image to be generated for each layout")
-    parser.add_argument('--sample_path', type=str, default='samples/tmp/mask/orig/',
+    parser.add_argument('--sample_path', type=str, default='/home/liao/work_code/LostGANs/samples/tmp/app/vg/G40/128_5',
                         help='path to save generated images')
     args = parser.parse_args()
     main(args)

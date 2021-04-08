@@ -1,5 +1,5 @@
 # layout2img
-This repository includes the implementation for [Context-Aware Layout to Image Generation with Enhanced Object Appearance](https://arxiv.org/abs/2004.14231) (to appear in CVPR 2021).
+This repository includes the implementation for [Context-Aware Layout to Image Generation with Enhanced Object Appearance](https://arxiv.org/abs/2103.11897) (to appear in CVPR 2021).
 
 This repo is not completely.
 
@@ -18,10 +18,11 @@ pip install -r requirements.txt
 ## TODO
 - [x] instruction to prepare dataset
 - [ ] remove all unnecessary files
-- [ ] add link to download our pre-trained model
+- [x] add link to download our pre-trained model
 - [ ] clean code including comments
 - [ ] instruction for training
 - [ ] instruction for evaluation
+- [ ] instruction for applying our methods in [layout2img](https://github.com/zhaobozb/layout2im)
 
 ## Training ImageTransformer
 
@@ -47,10 +48,15 @@ See `opts.py` for the options. (You can download the pretrained models from [her
 
 
 ### Trained model
-you can download our trained model from our [onedrive repo]()
+you can download our trained model from our [onedrive repo](https://1drv.ms/u/s!At2RxWvE6z1zgvEO2U1cvAL74id2Ng?e=tNPag5)
 
 ### Performance
-You will get the scores close to below after training under xe loss for xxxxx epochs:
+You will get the scores close to below after training for around 200 epochs:
+
+| models  | Resolutions | IS-COCO     | IS-VG       | FID-COCO | FID-VG |
+|---------|-------------|-------------|-------------|----------|--------|
+| Ours-ED | 64*64       | 15.27+/-.25 | 8.53+/-.13  | 31.32    | 33.91  |
+| Ours-D  | 128*128     | 15.62+/-.05 | 12.69+/-.45 | 22.32    | 21.78  |
 
 ## Reference
 
