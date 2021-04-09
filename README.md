@@ -3,6 +3,10 @@ This repository includes the implementation for [Context-Aware Layout to Image G
 
 This repo is not completely.
 
+## Network Structure
+![network_structure](./figure/framework.png)
+
+
 ## Requirements
 * python3
 * pytorch >1.0
