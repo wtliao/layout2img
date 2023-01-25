@@ -45,7 +45,7 @@ python scripts/preprocess_vg.py
 ### Start training
 
 
-See `opts.py` for the options. (You can download the pretrained models from [here]()
+See `opts.py` for the options.
 
 
 ### Evaluation
